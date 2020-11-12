@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	    <title>Ques4</title>
+	</head>
+	<body>
+	    <form>
+	        <label>Input the rows: </label>
+	        <input type="number" id="rowstriangle" name="rowstriangle">
+	        <br><br>
+	        <label>Input triangles: </label>
+	        <input type="number" id="trianglecount" name="trianglecount">
+	        <br><br><br>
+	        <input type="submit" value="Submit" id="myButton">
+	    </form>
+	</body>
+	<script>
+	    document.getElementById("myButton").addEventListener("click", function()
+	    {
+	        var rowstriangle = document.getElementById("rowstriangle").value;
+	        var trianglecount = document.getElementById("trianglecount").value;
+	        for(var triangle=0;triangle<trianglecount;triangle++)
+	        {
+	            for(var i=0;i<rowstriangle;i++)
+	            {
+	                for(var j=rowstriangle-i; j>=0; j--)
+	                {
+	                    document.write("\xa0\xa0");   
+	                }
+	                for(var j=0; j<(2*i+1); j++)
+	                {
+	                    if(triangle==0 && j==0 && i==0)
+	                    {
+	                        document.write("*"); 
+	                    }
+	                    else
+	                    {
+	                        document.write("0");
+	                    }
+	                }
+	                document.write("<br>");
+	            }
+	        }
+	        for(var j=0;j<rowstriangle;j++)
+	        {
+	            for(var i=0;i<rowstriangle;i++)
+	            {
+	                document.write("\xa0\xa0");     
+	            }
+	            var temp=2;
+	            for(var i=0;i<=temp;i++)
+	            {
+	                document.write("0");           
+	            }
+	            document.write("<br>");
+	        }
+	
+
+	    }, false);
+	</script>
+	</html>
+

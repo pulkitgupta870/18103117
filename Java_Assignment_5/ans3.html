@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	    <title>Ques3</title>
+	</head>
+	<body>
+	    <form>
+	        <label>Input string: </label>
+	        <input type="text" id="string" name="string">
+	        <br><br>
+	        <input type="submit" value="Submit" id="myButton">
+	    </form>
+	</body>
+	<script>
+	    document.getElementById("myButton").addEventListener("click", function()
+	    {
+	        var str = document.getElementById("string").value;
+	        var validity=true;
+	        for(var i=0;i<str.length;i++)
+	        {
+	            if(str.charAt(i)!='('&&str.charAt(i)!=')'&&str.charAt(i)!='['&&str.charAt(i)!=']'&&str.charAt(i)!='{'&&str.charAt(i)!='}')
+	            {
+	                validity=false;
+	            }
+	        }
+	        if(validity==false)
+	        {
+	            alert("Wrong input");
+	        }
+	        else
+	        {
+	            var arr = new Array();                                         
+	            var ans=true;
+	            var elementpop;
+	            for(var i=0;i<str.length;i++)
+	            {
+	                if(str.charAt(i)=="(")
+	                {
+	                    arr.push('(');
+	                }
+	                else if(str.charAt(i)=="[")
+	                {
+	                    arr.push('[');
+	                }
+	                else if(str.charAt(i)=="{")
+	                {
+	                    arr.push('{');
+	                }
+	                else if(str.charAt(i)==")")
+	                {
+	                    if(arr.length==0)
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                    elementpop = arr.pop();
+	                    if(elementpop!='(')
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                }
+	                else if(str.charAt(i)=="]")
+	                {
+	                    if(arr.length==0)
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                    elementpop = arr.pop();
+	                    if(elementpop!='[')
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                }
+	                else if(str.charAt(i)=="}")
+	                {
+	                    if(arr.length==0)
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                    elementpop = arr.pop();
+	                    if(elementpop!='{')
+	                    {
+	                        ans=false;
+	                        break;
+	                    }
+	                }
+	            }
+	            if(arr.length!=0)
+	            {
+	                ans=false;
+	            }
+	            if(ans==true)
+	            {
+	                alert("Balanced Parenthesis!");
+	            }
+	            else
+	            {
+	                alert("Not Balanced Parenthesis!");
+	            }
+	        }
+	
+
+	    }, false);
+	</script>
+	</html>
+
